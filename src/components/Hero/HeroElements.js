@@ -87,7 +87,7 @@ export const HeroContent = styled.div`
 `;
 
 export const Arrow = styled(FaArrowRight)`
-  margin-left: 3px;
+  margin-left: 0.5rem;
 `;
 
 const ArrowButtons = css`
