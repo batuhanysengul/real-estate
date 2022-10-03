@@ -1,25 +1,53 @@
-import React from 'react'
-import { HeroSection, HeroWrapper, HeroSlide, HeroSlider, HeroImage, HeroContent } from './HeroElements'
+import React, {useState, useRef} from "react";
+import {
+  HeroSection,
+  HeroWrapper,
+  HeroSlide,
+  HeroSlider,
+  HeroImage,
+  HeroContent,
+  Arrow,
+  SliderButtons,
+  RightArrow,
+  LeftArrow,
+} from "./HeroElements";
+import { Button } from "../Button";
+import {css} from "styled-components/macro";
 
-function Hero({slides}) {
+function Hero({ slides }) {
   return (
     <HeroSection>
-        <HeroWrapper>
-        {slides.map((slide, index) =>{
-            return(
-                <HeroSlide key={index}>
-                        <HeroSlider>
-                            <HeroImage src={slide.image}/>
-                                <HeroContent>
-                                    <h1>{slide.title}</h1>
-                                </HeroContent>
-                        </HeroSlider>
-                </HeroSlide>
-            )
+      <HeroWrapper>
+        {slides.map((slide, index) => {
+          return (
+            <HeroSlide key={index}>
+              <HeroSlider>
+                <HeroImage src={slide.image} alt={slide.alt} />
+                <HeroContent>
+                  <h1>{slide.title}</h1>
+                  <p>{slide.price}</p>
+                  <Button
+                    to={slide.path}
+                    primary="true"
+                    css={`
+                      max-width: 150px;
+                    `}
+                  >
+                    {slide.label}
+                    <Arrow />
+                  </Button>
+                </HeroContent>
+              </HeroSlider>
+            </HeroSlide>
+          );
         })}
-        </HeroWrapper>
+        <SliderButtons>
+            <LeftArrow />
+            <RightArrow />
+        </SliderButtons>
+      </HeroWrapper>
     </HeroSection>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

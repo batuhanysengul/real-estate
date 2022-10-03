@@ -4,7 +4,6 @@ import { FaBars } from "react-icons/fa";
 
 export const Nav = styled.nav`
   height: 60px;
-  background-color: red;
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
@@ -21,6 +20,12 @@ const NavLink = css`
   height: 100%;
   cursor: pointer;
   text-decoration: none;
+
+  &:hover{
+    color: #cd853f;
+    transition: 0.3s;
+    transform: translateY(5px);
+  }
 `;
 
 export const Logo = styled(Link)`
@@ -33,12 +38,12 @@ export const MenuBars = styled(FaBars)`
 
   @media screen and (max-width: 768px) {
     visibility: visible;
-    height: 35px;
-    width: 35px;
+    height: 25px;
+    width: 25px;
     position: absolute;
     cursor: pointer;
-    top: 10px;
-    right: 30px;
+    top: 15px;
+    right: 40px;
     color: white;
     display: flex;
   }
